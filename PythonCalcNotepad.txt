@@ -1,0 +1,8 @@
+kivy how to make it modular that allows for later implementation of new features at a later date
+
+I am making a multi screen calculator, and I would like to make it very modular. To the point that, if there were no added modules, 
+it would just be a blank page. I have a main script and .kv file, and I would like to have the 'main' file look in a sub-dir and
+make a button for each folder in the sub-dir such as "Windows\Help" makes a button called 'Help' that then load the files in the folder.
+
+The problem I am having is I cannot make a button for each folder. This is my code so far-
+

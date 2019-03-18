@@ -1,0 +1,78 @@
+#:kivy 1.10.1
+#:import sm kivy.uix.screenmanager
+
+<CombinationScreens>:
+    name: 'CombinationScreens'
+
+    ComboMain:
+        id: ComboMain
+        ComboCalcScreen:
+
+<ComboCalcScreen>:
+    name: 'ComboCalcScreen'
+    id: Screen
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: "left"
+            anchor_y: "top"
+            Button:
+                text: "Return"
+                size_hint: 0.2, 0.2
+                on_release: Screen.parent.parent.parent.current = "MenuScreen"
+
+        AnchorLayout:
+            anchor_y: 'top'
+            pos_hint: {'top':.79, 'right':.66}
+            GridLayout:
+                size_hint: 0.3, 0.2
+                rows: 2
+                AnchorLayout:
+                    anchor_x:'center'
+                    anchor_y:'center'
+                    canvas:
+                        Color:
+                            rgba: .3, .3, .3, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    TextInput:
+                        id: ComboTextInput
+                        hint_text: 'Combonation'
+                        multiline: False
+                        font_size: 23
+                        size_hint: .9, .7
+                        
+                AnchorLayout:
+                    canvas:
+                        Color:
+                            rgba: .3, .3, .3, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    TextInput:
+                        id: ComboSpotsInput
+                        multiline: False
+                        font_size: 23
+                        size_hint: .9, .7
+                        hint_text: 'Spots/Places'
+    Button:
+        text:"Calculate"
+        on_press: root.add_input()
+        font_size: 20
+        size_hint: 0.15, 0.1
+        pos_hint: {'right':0.47, 'top':0.79}
+    Button:
+        text:'Clear'
+        on_press: root.clear()
+        font_size: 20
+        size_hint: 0.15, 0.1
+        pos_hint: {'right':0.51, 'top':0.99}
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'center'
+        GridLayout:
+            id: ComboOutputGrid
+            size_hint: 0.5, 0.8
+            rows: 7
+
+

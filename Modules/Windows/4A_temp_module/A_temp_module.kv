@@ -1,0 +1,22 @@
+#:kivy 1.10.1
+#:import sm kivy.uix.screenmanager
+
+
+<A_temp_moduleScreens>:
+    name: 'A_temp_moduleScreens'
+
+    A_temp_moduleManager:
+        id: A_temp_moduleManager
+        A_temp_moduleMainScreen:
+
+<A_temp_moduleMainScreen>:
+    name: 'A_temp_moduleMainScreen'
+    id: Screen
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: "left"
+            anchor_y: "top"
+            Button:
+                text: "Return"
+                size_hint: 0.2, 0.2
+                on_release: Screen.parent.parent.parent.current = "MenuScreen"

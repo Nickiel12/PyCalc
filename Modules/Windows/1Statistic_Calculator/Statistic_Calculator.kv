@@ -1,0 +1,178 @@
+#:kivy 1.10.1
+
+<Statistic_CalculatorScreens>:
+    name: 'Statistic_CalculatorScreens'
+    StatisticManager:
+        id: StatisticManager
+        StatisticScreen:
+
+<StatisticScreen>:
+    name: 'StatisticScreen'
+    id: Screen
+    AnchorLayout:
+        anchor_x: "left"
+        anchor_y: "top"
+        Button:
+            text: "Return"
+            size_hint: 0.2, 0.2
+            on_release: Screen.parent.parent.parent.current = "MenuScreen"
+    AnchorLayout:
+        anchor_y: 'top'
+        pos_hint: {'top':.79, 'right':.21}
+        size_hint: .2, .1
+        canvas:
+            Color:
+                rgba: .3, .3, .3, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'center'
+            TextInput:
+                id: DigitInput
+                hint_text: 'Input'
+                font_size: 23
+                size_hint: .9, .7
+                multiline: False
+                on_text_validate: root.add_input()
+    GridLayout:
+        pos_hint: {'top': .68, 'right': .369}
+        size_hint: .359, .665
+        cols: 2
+        id: InputGrid
+        canvas:
+            Color:
+                rgba: .3, .3, .3, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    Button:
+        text:"Add"
+        on_press: root.add_input()
+        font_size: 25
+        size_hint: 0.15, 0.101
+        pos_hint: {'right':0.37, 'top':0.79}
+
+    Button:
+        text:"Calculate"
+        on_press: root.calculate()
+        font_size: 20
+        size_hint: 0.15, 0.1
+        pos_hint: {'right':0.37, 'top':0.89}
+
+    Button:
+        text:"Remove Input"
+        on_press: root.remove_most_prev_input()
+        font_size: 18
+        size_hint: 0.15, 0.1
+        pos_hint: {'right':0.37, 'top':0.99}
+    Button:
+        text:"Clear"
+        on_press: root.clear_output()
+        font_size: 18
+        size_hint: 0.119, 0.1
+        pos_hint: {'right':0.489 , 'top':0.99}
+    GridLayout:
+        id: OutputGrid
+        cols: 1
+        size_hint: .25, .98
+        pos_hint: {'right': .99, 'top': .99}
+        canvas:
+            Color:
+                rgba: .1, .3, .3, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        ScaleLabel:
+            id:AverageLabel
+            font_size: 75
+        Button:
+            text:'View\nChart'
+            font_size: 40
+            on_press: Screen.ids.CountManager.current = 'CountScreen'
+        ScaleLabel:
+            id:MedianLabel
+            font_size: 75
+        ScaleLabel:
+            id: StandDeviate
+            font_size: 75
+        Button:
+            text:'I do\nnothing'
+            halign: 'center'
+        
+
+    GridLayout:
+        id: OutputLabelGrid
+        cols: 1
+        size_hint: .25, .98
+        pos_hint: {'right': .74, 'top': .99}
+        canvas:
+            Color:
+                rgba: .3, .3, .3, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: 'Average:'
+            font_size: 45
+        Label:
+            text: 'Count:'
+            font_size: 45
+        Label:
+            text: 'Median:'
+            font_size: 45
+        Label:
+            text: 'Standard\nDeviation:'
+            font_size: 25
+            valign: 'middle'
+            halign: 'center'
+        Button:
+            text: 'Deviation\nChart'
+            font_size: 35
+            valign: 'middle'
+            halign: 'center'
+    ScreenManager:
+        id: CountManager
+        BlankScreen:
+        CountScreen:
+
+<BlankScreen>:
+    name: 'BlankScreen'
+
+<CountScreen>:
+    name: "CountScreen"
+    
+    canvas:
+        Color:
+            rgba: .1, .1, .13, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+        BoxLayout:
+            id: ChartBox
+            size_hint: .8, .8
+
+    AnchorLayout:
+        anchor_x: "left"
+        anchor_y: "top"
+        Button:
+            text: "Return"
+            size_hint: 0.1, 0.1
+            on_release: self.parent.parent.parent.current = "BlankScreen"
+    Label:
+        text: 'Count'
+        font_size: 25
+        size_hint: .2, .1
+        pos_hint: {'top': 1, 'right': .58}
+    Button:
+        text: '?'
+        font_size: 15
+        size_hint: .04, .04
+        pos_hint: {'top': .98, 'right': .57}
+        on_press: root.explain_popup()

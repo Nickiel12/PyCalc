@@ -1,0 +1,19 @@
+''' #this is for non bool cfgs
+def ConfigSectionMap(section):
+    dict1 = {}
+    options = Config.options(section)
+    for option in options:
+        try:
+            dict1[option] = Config.get(section, option)
+        except:
+            dict1[option] = None
+    return dict1
+'''
+
+modulesImport = getattr(__import__(path_or_package, fromlist=[modulename]), modulename)
+
+https://docs.python-guide.org/shipping/freezing/#freezing-your-code-ref
+pyInstaller  and  cx_freeze
+
+17.48
+

@@ -1,0 +1,7 @@
+1. The name of the folder is it's corrosponding button name. anything with an extension in /Windows is excluded
+2. The python file with the screens is named, FolderName+Screens so the Help folder has a HelpScreens.py 
+3. The class that is used as an entry point must be the same name as the file it is in, e.g. Help/HelpScreens.HelpScreens
+4. The Kivy file is FolderName.kv Help/Help.kv
+5. The Entry screen should only contain the ScreenManager and the managers childern 
+6. All Screens that are under the ScreenManager must have a unique name, different that any other in the program. (to test for overlap, make the basics and run the program, see if it looks like another window)
+7. The main screen that has the return to menu button parented should be have an id of 'Screen' if you just copy and paste the code for the reuturn button

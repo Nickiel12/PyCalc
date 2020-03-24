@@ -51,9 +51,10 @@ class Window(FloatLayout):
     
     def write_kv_file(self, dir_path, module_name):
         file_path = str(str(dir_path / (module_name[1::])) + '.kv')
+        my_path = str(os.path.join(os.path.abspath(__file__), ".\\.."))
         module_name = module_name[1::]
 
-        with open('kvTemplate.txt', 'r') as kv_template:
+        with open(f'{my_path}\\kvTemplate.txt', 'r') as kv_template:
             kv_template_str = kv_template.read()
             kv_content = Template(kv_template_str).substitute(module_nameScreens=str(module_name) + 'Screens', 
                 module_nameManager = str(module_name) + 'Manager',
@@ -63,8 +64,9 @@ class Window(FloatLayout):
     
     def write_py_file(self, dir_path, module_name):
         file_path = str(str(dir_path / (module_name[1::])) + 'Screens.py')
+        my_path = str(os.path.join(os.path.abspath(__file__), ".\\.."))
         class_names = module_name[1::]
-        with open('pyTemplate.txt', 'r') as py_template:
+        with open(f'{my_path}\\pyTemplate.txt', 'r') as py_template:
             py_template_str = py_template.read()
             py_content = Template(py_template_str).substitute(module_nameScreens=str(class_names) + 'Screens', 
                 module_nameManager = str(class_names) + 'Manager',

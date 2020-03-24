@@ -55,7 +55,8 @@ class PermCalcScreen(Screen): #30 is the max character length that looks good
         return output_str
 
     def clear(self):
-        self.ids.TextInput.text = ''
+        self.ids.PermTextInput.text = ''
+        self.ids.PermSpotsInput.text = ""
         self.ids.SpotsInput.text = 'Spots/Places'
         self.ids.OutputGrid.clear_widgets()
 

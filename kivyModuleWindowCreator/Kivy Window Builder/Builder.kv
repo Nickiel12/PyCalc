@@ -1,0 +1,38 @@
+#:kivy 1.10.1
+
+<Window>:
+
+    Label:
+        text: 'Module Name:'
+        pos_hint: {'top': 1, 'right': .35}
+        size_hint: .2, .4
+        font_size: 50
+    TextInput:
+        id: NameInput
+        pos_hint: {'top': .85, 'right': .9}
+        size_hint: .4, .1
+        font_size: 40
+
+    Label:
+        text: 'Build Directory:'
+        pos_hint: {'top': .7, 'right': .325}
+        size_hint: .2, .4
+        font_size: 50
+    TextInput:
+        id: PathInput
+        pos_hint: {'top': .55, 'right': .95}
+        size_hint: .5, .05
+        font_size: 15
+    Button:
+        text: 'Browse'
+        pos_hint: {'top': .495, 'right': .95}
+        size_hint: .5, .05
+        on_press: root.browse()
+
+    Button:
+        text: 'Build Windows'
+        pos_hint: {'top': .3, 'right': .65}
+        size_hint: .3, .1
+        on_press: root.build_windows_template()
+
+        

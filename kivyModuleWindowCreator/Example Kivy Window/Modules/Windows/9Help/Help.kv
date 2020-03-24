@@ -1,0 +1,104 @@
+#:kivy 1.10.1
+#:import sm kivy.uix.screenmanager
+
+<HelpScreens>:
+    name: "HelpScreens"
+    HelpManager:
+        transition: sm.SwapTransition()
+        id: SndScrnManager
+        HelpMain:
+        HelpComboScreen:
+        HelpStatScreen:
+        HelpPermScreen:
+
+<HelpMain>:
+    name: "HelpMain"
+    id: Screen
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: "left"
+            anchor_y: "top"
+            Button:
+                text: "Return"
+                size_hint: 0.2, 0.2
+                on_release: Screen.parent.parent.parent.current = "MenuScreen"
+        AnchorLayout:
+            anchor: "middle"
+            GridLayout:
+                rows: 4
+                size_hint: .6, .6
+                Button:
+                    text: "Combo Help"
+                    size_hint: 0.5, 0.2
+                    on_release: Screen.parent.current = "HelpComboScreen"
+
+                Button:
+                    text: "Statistic Help"
+                    size_hint: 0.5, 0.2
+                    on_release: Screen.parent .current = "HelpStatScreen"
+
+                Button:
+                    text:"Permutation Help"
+                    size_hint: 0.5, 0.2
+                    on_release: Screen.parent.current = "HelpPermScreen"
+
+                Button:
+                    text: "Another Button "
+                    size_hint: 0.5, 0.2
+
+
+<HelpComboScreen>:
+    name: "HelpComboScreen"
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: "left"
+            anchor_y: "top"
+            Button:
+                text: "Return"
+                size_hint: 0.2, 0.2
+                on_release: root.manager.current = "HelpMain"
+        AnchorLayout:
+            anchor: 'middle'
+            Label:
+                halign: 'center'
+                valign: 'center'
+                font_size: 50
+                id: "Combo_Label"
+                text_size: self.size
+                text: root.combo_str
+
+<HelpStatScreen>:
+    name: "HelpStatScreen"
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: "left"
+            anchor_y: "top"
+            Button:
+                text: "Return"
+                size_hint: 0.2, 0.2
+                on_release: root.manager.current = "HelpMain"
+        AnchorLayout:
+            anchor: 'middle'
+            Label:
+                halign: 'center'
+                valign: 'center'
+                text_size: self.size
+                text: root.stat_str
+
+<HelpPermScreen>:
+    name: "HelpPermScreen"
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: "left"
+            anchor_y: "top"
+            Button:
+                text: "Return"
+                size_hint: 0.2, 0.2
+                on_release: root.manager.current = "HelpMain"
+        AnchorLayout:
+            anchor: 'middle'
+            Label:
+                halign: 'center'
+                valign: 'center'
+                text_size: self.size
+                text: root.perm_str

@@ -1,0 +1,22 @@
+#:kivy 1.10.1
+#:import sm kivy.uix.screenmanager
+
+
+<$module_nameScreens>:
+    name: '$module_nameScreens'
+
+    $module_nameManager:
+        id: $module_nameManager
+        $module_nameMainScreen:
+
+<$module_nameMainScreen>:
+    name: '$module_nameMainScreen'
+    id: Screen
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: "left"
+            anchor_y: "top"
+            Button:
+                text: "Return"
+                size_hint: 0.2, 0.2
+                on_release: Screen.parent.parent.parent.current = "MenuScreen"

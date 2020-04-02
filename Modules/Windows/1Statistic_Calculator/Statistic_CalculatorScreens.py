@@ -48,7 +48,7 @@ class StatisticScreen(Screen):
         self.ids.DigitInput.text = ''
         Clock.schedule_once(self.focus_set, 0.2)
         try: 
-            num_input = int(num_input)
+            num_input = float(num_input)
         except ValueError:
             self.popup_error_inputfield()
             return

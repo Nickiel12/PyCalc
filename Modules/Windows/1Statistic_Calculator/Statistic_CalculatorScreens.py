@@ -89,8 +89,9 @@ class StatisticScreen(Screen):
             return
         average = StatCalc.average(self.input_list)
         count_dict = StatCalc.count_two(self.input_list)
-        median = StatCalc.median(self.input_list)
         standard_deviation = StatCalc.standard_deviation(self.input_list)
+        self.input_list.sort()
+        median = StatCalc.median(self.input_list)
         self.ids.InputGrid.clear_widgets()
         self.input_list.clear()
 

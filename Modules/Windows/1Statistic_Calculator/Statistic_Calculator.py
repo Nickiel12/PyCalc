@@ -20,7 +20,7 @@ def average( x=[]):
 def median( x=[]):
     """
     Takes x list, and returns the central number. \n
-    If there are an even number of items, it does the number in the middle of the two.\n
+    If there are an even number of items, it returns the average of the middle two.\n
     Half of the numbers in the list are above the returned number, and half are below.
     """
     Num1 = None

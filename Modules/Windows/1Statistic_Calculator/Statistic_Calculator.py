@@ -49,7 +49,7 @@ def count(x=[]):
     output = []
     y = []
     for i in x:
-        y.append(int(i))
+        y.append(i)
     y.sort()
     d = {z:y.count(z) for z in y}
     k = d.keys()
@@ -72,7 +72,7 @@ def count_two(x=[]):
     """
     y = []
     for i in x:
-        y.append(int(i))
+        y.append(i)
     y.sort()
     diction = {z:y.count(z) for z in y}
     return(diction)
